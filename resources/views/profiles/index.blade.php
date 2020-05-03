@@ -4,17 +4,25 @@
 <div class="container">
     <div class="row ml-2">
         <div class="col-3 p-4 ">
-            <img src="/storage/{{$user->profile->image}}"
-                 class="rounded-circle w-100 p-2">
+            <img src="{{$user->profile->profileImage()}}"
+                 class="rounded-circle w-100 p-4">
         </div>
         <div class="col-9 pt-4 ">
-            <div class="d-flex align-items-center pt-2">
+            <div class="d-flex align-items-center pt-4">
                 <h1>{{$user->username}}</h1>
                 @can('update',$user->profile)
-                <span class ="settings" >
+                    <a class ="btn btn-outline-secondary ml-3" href="/profile/{{$user->id}}/edit">Edit Profile</i></a>
+
+                    <span class ="settings" >
                     <a href="/profile/{{$user->id}}/edit"><i class="icofont-gear"></i></a>
                 </span>
                 @endcan
+
+                @cannot('update',$user->profile)
+                    <a class ="btn  btn-outline-secondary ml-3" href="#">Follow</a>
+                    <a class ="btn  btn-outline-secondary ml-2" href="#">Message</a>
+                    <a class ="btn  btn-light ml-3" href="#">...</a>
+                @endcannot
             </div>
             <div class="d-flex">
                 <div class="pr-5"> <strong>{{$user->posts->count()}}</strong> Posts</div>
