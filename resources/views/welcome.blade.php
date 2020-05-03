@@ -69,6 +69,16 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Feeds</a>
+                        <a href="{{ url('/profile/'. Auth::user()->id) }}">Profile</a>
+                        <a  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -89,6 +99,7 @@
 
                             @auth
                                 <a href="{{ url('/home') }}">Feeds</a>
+
                             @else
                                 <a href="{{ route('login') }}">Login</a>
 
@@ -103,7 +114,23 @@
                     <a href="https://nova.laravel.com">Search </a>
                     <a href="https://forge.laravel.com">Privacy Policy</a>
                     <a href="https://nova.laravel.com">About</a>
-                    <a href="https://forge.laravel.com">Contact</a>
+
+                    @if (Route::has('login'))
+
+                        @auth
+                            <a href="{{ url('/profile/'. Auth::user()->id) }}">Profile</a>
+                                <a  href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                        @endauth
+
+                    @endif
 
                 </div>
             </div>
