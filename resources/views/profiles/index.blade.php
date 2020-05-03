@@ -19,15 +19,15 @@
                 @endcan
 
                 @cannot('update',$user->profile)
-                    <a class ="btn  btn-outline-secondary ml-3" href="#">Follow</a>
+                    <follow-button user_id="{{$user->id}}" follows="{{ $follows }}"></follow-button>
                     <a class ="btn  btn-outline-secondary ml-2" href="#">Message</a>
                     <a class ="btn  btn-light ml-3" href="#">...</a>
                 @endcannot
             </div>
             <div class="d-flex">
                 <div class="pr-5"> <strong>{{$user->posts->count()}}</strong> Posts</div>
-                <div class="pr-5"> <strong>12</strong> Followers</div>
-                <div class="pr-5"> <strong>12</strong> Following</div>
+                <div class="pr-5"> <strong>{{$user->profile->followers->count()}}</strong> Followers</div>
+                <div class="pr-5"> <strong>{{$user->following->count()}}</strong> Following</div>
             </div>
             <div class="pt-3 font-weight-bold">
             {{$user->profile->title}}

@@ -20,15 +20,20 @@ Route::get('/', function () {
 
 
 
+
 Auth::routes();
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
 
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 
+Route::get('/home', 'PostController@index')->name('post.index');
 Route::get('/post/create', 'PostController@create')->name('post.create');
 Route::post('/post', 'PostController@store')->name('post.store');
 Route::get('/post/{post}', 'PostController@show')->name('post.show');
+
+
+Route::post('/follow/{user}', 'FollowsController@store')->name('user.store');
 
 
 
