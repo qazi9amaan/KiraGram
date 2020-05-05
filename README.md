@@ -15,11 +15,28 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-<div class = "container">
+
 <p>
     <h3> Welcome to Kiragram </h3>
     <img src = "/public/Images/2.png" class="w-50">
 </p>
-</div>
+<hr>
+<p>
+    <h3> Login to Kiragram </h3>
+    <img src = "/public/Images/7.png" class="w-50">
+</p>
+<hr>
+<p>
+    <h3> Feed</h3>
+    <img src = "/public/Images/3.png" class="w-50">
+</p>
+<hr>
+<p>
+    <h3> Kiragram user-profile </h3>
+    <img src = "/public/Images/4.png" class="w-50">
+</p>
+<p>
+    <h3> Kiragram edit-profile </h3>
+    <img src = "/public/Images/6.png" class="w-50">
+</p>
