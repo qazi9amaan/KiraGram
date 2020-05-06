@@ -20,11 +20,28 @@ class FollowsController extends Controller
         return  auth()->user()->following()->toggle($user->profile);
 
     }
-    public function followers()
+    public function following(User $user)
     {
-        $users = auth()->user()->profile->followers()->pluck('users.id');
-        $profiles = Profile::whereIn('user_id',$users);
-        return view('follows.index',compact('profiles'));
+
+        $users =  $user->following()->pluck('profiles.user_id');
+        $profiles = Profile::whereIn('user_id',$users)->with('user')->latest()->get();
+        return view('follows.index',[
+            'profiles'=> $profiles,
+            'type'=> 'following',
+            'user'=>$user,
+        ]);
+
+    }
+    public function followers(User $user)
+    {
+
+        $users =  $user->profile->followers()->pluck('users.id');
+        $profiles = Profile::whereIn('user_id',$users)->with('user')->latest()->get();
+        return view('follows.index',[
+            'profiles'=> $profiles,
+            'type'=> 'follower',
+            'user'=>$user,
+        ]);
 
     }
 

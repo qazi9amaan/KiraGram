@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
+Route::get('/profile/{user}/following', 'FollowsController@following')->name('follows.following');
 Route::get('/profile/{user}/followers', 'FollowsController@followers')->name('follows.followers');
 
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
