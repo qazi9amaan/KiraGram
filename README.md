@@ -43,5 +43,5 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 <p>
     <h3> Kiragram show-followings </h3>
-    <img src = "/public/Images/7.png" class="w-50">
+    <img src = "/public/Images/8.png" class="w-50">
 </p>
